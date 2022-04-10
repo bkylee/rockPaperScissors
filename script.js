@@ -22,20 +22,24 @@ function computerPlay() {
 
 function round (playerSelect, computerSelect) {
     let winner = "TBA"; 
-    if (playerSelect === "CHARMANDER"  && computerSelect === "SQUIRTLE") {
+    if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
         winner = "GARY";
-    }else if (playerSelect === "SQUIRTLE"  && computerSelect === "CHARMANDER") {
+    }else if (playerSelect === "SQUIRTLE" && computerSelect === "CHARMANDER") {
         winner = "PLAYER";
-    }else if (playerSelect === "SQUIRTLE"  && computerSelect === "BULBASAUR") {
+    }else if (playerSelect === "SQUIRTLE" && computerSelect === "BULBASAUR") {
         winner = "GARY";
-    }else if (playerSelect === "BULBASAUR"  && computerSelect === "SQUIRTLE") {    
+    }else if (playerSelect === "BULBASAUR" && computerSelect === "SQUIRTLE") {    
         winner = "PLAYER";
-    }else if (playerSelect === "CHARMANDER"  && computerSelect === "BULBASAUR") {
+    }else if (playerSelect === "CHARMANDER" && computerSelect === "BULBASAUR") {
         winner = "PLAYER";
-    }else if (playerSelect === "BULBASAUR"  && computerSelect === "CHARMANDER"){ 
+    }else if (playerSelect === "BULBASAUR" && computerSelect === "CHARMANDER"){ 
         winner = "GARY";
     }
-    else prompt("Please try again")}
+    else prompt("Please try again")
+
+return winner;}
+
+
 
 function game () {
     let p1Score = 0;
@@ -44,10 +48,10 @@ function game () {
         playerSelect = prompt("Pick a Pokemon to battle: ").toUpperCase;
         PCpick = computerPlay();
         winner = round(playerSelect, PCpick);
-        if (winner === playerSelect) {
+        if (winner === "PLAYER") {
             p1Score ++;
         }
-        else if (winner === PCpick) {
+        else if (winner === "GARY") {
             CPUscore ++;
         }
         else 

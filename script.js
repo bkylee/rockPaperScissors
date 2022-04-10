@@ -1,3 +1,4 @@
+
 //Function to select the CPU output 
 function computerPlay() {
     //Create play variable to get a random selection between 1-3. This will determine if 
@@ -20,31 +21,44 @@ function computerPlay() {
 
 
 function round (playerSelect, computerSelect) {
-    let winner; 
-    switch (winner) {
-        //If player selects Charmander and CPU selects Squirtle
-        case playerSelect === "CHARMANDER"  && computerSelect === "SQUIRTLE":
-            winner = computerSelect;
-            break; 
-        case playerSelect === "SQUIRTLE"  && computerSelect === "CHARMANDER":
-            winner = playerSelect;
-            break; 
-        case playerSelect === "SQUIRTLE"  && computerSelect === "BULBASAUR":
-            winner = computerSelect;
-            break; 
-        case playerSelect === "BULBASAUR"  && computerSelect === "SQUIRTLE":
-            winner = playerSelect;
-            break; 
-        case playerSelect === "CHARMANDER"  && computerSelect === "BULBASAUR":
-            winner = playerSelect;
-            break; 
-        case playerSelect === "BULBASAUR"  && computerSelect === "CHARMANDER":
-            winner = computerSelect;
-            break; 
-        default: 
-            return "It's a tie";
-        }
+    let winner = (playerSelect === "CHARMANDER"  && computerSelect === "SQUIRTLE") ?
+            computerSelect: 
+            (playerSelect === "SQUIRTLE"  && computerSelect === "CHARMANDER") ?
+            playerSelect:
+            (playerSelect === "SQUIRTLE"  && computerSelect === "BULBASAUR") ?
+            computerSelect:
+            (playerSelect === "BULBASAUR"  && computerSelect === "SQUIRTLE") ?
+            playerSelect:
+            (playerSelect === "CHARMANDER"  && computerSelect === "BULBASAUR") ?
+            playerSelect:
+            (playerSelect === "BULBASAUR"  && computerSelect === "CHARMANDER") ?
+            computerSelect:
+            "WHat the fuck";
+    alert(winner);       
     return winner; 
 }
-let playerSelection= prompt("Please enter the pokemon you'd like to choose to battle").toUpperCase;
-round(playerSelection, computerPlay());
+
+function game () {
+    let p1Score = 0;
+    let CPUscore = 0; 
+    while (p1Score <5 || CPUscore <5) {
+        playerSelect = prompt("Pick a Pokemon to battle: ");
+        PCpick = computerPlay();
+        winner = round(playerSelect, PCpick);
+        if (winner === playerSelect) {
+            p1Score ++;
+        }
+        else if (winner === PCpick) {
+            CPUscore ++;
+        }
+        else 
+            alert("Please try again");
+    
+    console.log(`The Winner is ${winner}!`);
+    }
+}
+
+//game();
+playerSelect = "bulbasaur";
+something = computerPlay();
+round();

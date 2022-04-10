@@ -1,6 +1,3 @@
-let 
-
-
 //Function to select the CPU output 
 function computerPlay() {
     //Create play variable to get a random selection between 1-3. This will determine if 
@@ -23,9 +20,31 @@ function computerPlay() {
 
 
 function round (playerSelect, computerSelect) {
-    
-
+    let winner; 
+    switch (winner) {
+        //If player selects Charmander and CPU selects Squirtle
+        case playerSelect === "CHARMANDER"  && computerSelect === "SQUIRTLE":
+            winner = computerSelect;
+            break; 
+        case playerSelect === "SQUIRTLE"  && computerSelect === "CHARMANDER":
+            winner = playerSelect;
+            break; 
+        case playerSelect === "SQUIRTLE"  && computerSelect === "BULBASAUR":
+            winner = computerSelect;
+            break; 
+        case playerSelect === "BULBASAUR"  && computerSelect === "SQUIRTLE":
+            winner = playerSelect;
+            break; 
+        case playerSelect === "CHARMANDER"  && computerSelect === "BULBASAUR":
+            winner = playerSelect;
+            break; 
+        case playerSelect === "BULBASAUR"  && computerSelect === "CHARMANDER":
+            winner = computerSelect;
+            break; 
+        default: 
+            return "It's a tie";
+        }
+    return winner; 
 }
-let computerPlay = computerPlay(); 
-let playerSelection = prompt ("Please enter the pokemon you'd like to choose to battle").toUpperCase;
-round(playerSelection, computerPlay);
+let playerSelection= prompt("Please enter the pokemon you'd like to choose to battle").toUpperCase;
+round(playerSelection, computerPlay());

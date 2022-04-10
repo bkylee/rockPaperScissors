@@ -3,7 +3,7 @@
 function computerPlay() {
     //Create play variable to get a random selection between 1-3. This will determine if 
     //Rock, Paper, or Scissors is selected by the computer. 
-    let play = Math.floor(Math.random() * 3) + 1;
+    let play = Math.floor(Math.random() * 3);
 
     //Use switch to select if CPU is using Rock, Paper, or Scissors based on the random int 
     switch (play) {
@@ -21,28 +21,27 @@ function computerPlay() {
 
 
 function round (playerSelect, computerSelect) {
-    let winner = (playerSelect === "CHARMANDER"  && computerSelect === "SQUIRTLE") ?
-            computerSelect: 
-            (playerSelect === "SQUIRTLE"  && computerSelect === "CHARMANDER") ?
-            playerSelect:
-            (playerSelect === "SQUIRTLE"  && computerSelect === "BULBASAUR") ?
-            computerSelect:
-            (playerSelect === "BULBASAUR"  && computerSelect === "SQUIRTLE") ?
-            playerSelect:
-            (playerSelect === "CHARMANDER"  && computerSelect === "BULBASAUR") ?
-            playerSelect:
-            (playerSelect === "BULBASAUR"  && computerSelect === "CHARMANDER") ?
-            computerSelect:
-            "WHat the fuck";
-    alert(winner);       
-    return winner; 
-}
+    let winner = "TBA"; 
+    if (playerSelect === "CHARMANDER"  && computerSelect === "SQUIRTLE") {
+        winner = "GARY";
+    }else if (playerSelect === "SQUIRTLE"  && computerSelect === "CHARMANDER") {
+        winner = "PLAYER";
+    }else if (playerSelect === "SQUIRTLE"  && computerSelect === "BULBASAUR") {
+        winner = "GARY";
+    }else if (playerSelect === "BULBASAUR"  && computerSelect === "SQUIRTLE") {    
+        winner = "PLAYER";
+    }else if (playerSelect === "CHARMANDER"  && computerSelect === "BULBASAUR") {
+        winner = "PLAYER";
+    }else if (playerSelect === "BULBASAUR"  && computerSelect === "CHARMANDER"){ 
+        winner = "GARY";
+    }
+    else prompt("Please try again")}
 
 function game () {
     let p1Score = 0;
     let CPUscore = 0; 
     while (p1Score <5 || CPUscore <5) {
-        playerSelect = prompt("Pick a Pokemon to battle: ");
+        playerSelect = prompt("Pick a Pokemon to battle: ").toUpperCase;
         PCpick = computerPlay();
         winner = round(playerSelect, PCpick);
         if (winner === playerSelect) {
@@ -55,10 +54,13 @@ function game () {
             alert("Please try again");
     
     console.log(`The Winner is ${winner}!`);
+    return winner;
     }
 }
 
 //game();
-playerSelect = "bulbasaur";
+playerSelect = "SQUIRTLE";
 something = computerPlay();
-round();
+winner = round(playerSelect, something);
+
+console.log(winner);

@@ -1,4 +1,3 @@
-
 //Function to select the CPU output 
 function computerPlay() {
     //Create play variable to get a random selection between 1-3. This will determine if 
@@ -21,50 +20,46 @@ function computerPlay() {
 
 
 function round (playerSelect, computerSelect) {
-    let winner = "TBA"; 
-    if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
-        winner = "GARY";
-    }else if (playerSelect === "SQUIRTLE" && computerSelect === "CHARMANDER") {
-        winner = "PLAYER";
-    }else if (playerSelect === "SQUIRTLE" && computerSelect === "BULBASAUR") {
-        winner = "GARY";
-    }else if (playerSelect === "BULBASAUR" && computerSelect === "SQUIRTLE") {    
-        winner = "PLAYER";
-    }else if (playerSelect === "CHARMANDER" && computerSelect === "BULBASAUR") {
-        winner = "PLAYER";
-    }else if (playerSelect === "BULBASAUR" && computerSelect === "CHARMANDER"){ 
-        winner = "GARY";
+    if (playerSelect === computerSelect) {
+        playerSelect = prompt("Please try again:" ).toUpperCase();
+        computerSelect = computerPlay(); 
+        return round(playerSelect, computerSelect);
     }
-    else prompt("Please try again")
-
-return winner;}
-
-
+    else if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
+        return "Gary wins!";
+    }else if (playerSelect === "SQUIRTLE" && computerSelect === "CHARMANDER") {
+        return "Player 1 wins!";
+    }else if (playerSelect === "SQUIRTLE" && computerSelect === "BULBASAUR") {
+        return "Gary wins!";
+    }else if (playerSelect === "BULBASAUR" && computerSelect === "SQUIRTLE") {    
+        return "Player 1 wins!";
+    }else if (playerSelect === "CHARMANDER" && computerSelect === "BULBASAUR") {
+        return "Player 1 wins!";
+    }else if (playerSelect === "BULBASAUR" && computerSelect === "CHARMANDER"){ 
+        return "Gary wins!";
+    }
+}
 
 function game () {
     let p1Score = 0;
     let CPUscore = 0; 
     while (p1Score <5 || CPUscore <5) {
-        playerSelect = prompt("Pick a Pokemon to battle: ").toUpperCase;
+        playerSelect = prompt("Pick a Pokemon to battle: ").toUpperCase();
         PCpick = computerPlay();
         winner = round(playerSelect, PCpick);
-        if (winner === "PLAYER") {
+        if (winner === "Player 1 wins!") {
             p1Score ++;
         }
-        else if (winner === "GARY") {
+        else if (winner === "Gary wins!") {
             CPUscore ++;
         }
-        else 
-            alert("Please try again");
-    
     console.log(`The Winner is ${winner}!`);
     return winner;
     }
 }
 
-//game();
-playerSelect = "SQUIRTLE";
-something = computerPlay();
-winner = round(playerSelect, something);
-
-console.log(winner);
+game();
+//playerSelect = "SQUIRTLE";
+//something = computerPlay();
+//winner = round(playerSelect, something);
+//console.log(winner);

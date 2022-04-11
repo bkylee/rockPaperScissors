@@ -22,8 +22,9 @@ function computerPlay() {
 
 function round (playerSelect, computerSelect) {
     if (playerSelect === computerSelect) {
-        playerSelect =prompt("Please try again:" ).toUpperCase;
-        round(playerSelect, computerSelect);
+        playerSelect = prompt("Please try again:" );
+        playerSelect = playerSelect.toUpperCase;
+        return round(playerSelect, computerSelect);
     }
     else if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
         return "Gary wins!";
@@ -47,15 +48,12 @@ function game () {
         playerSelect = prompt("Pick a Pokemon to battle: ").toUpperCase;
         PCpick = computerPlay();
         winner = round(playerSelect, PCpick);
-        if (winner === "PLAYER") {
+        if (winner === "Player 1 wins!") {
             p1Score ++;
         }
-        else if (winner === "GARY") {
+        else if (winner === "Gary wins!") {
             CPUscore ++;
         }
-        else 
-            alert("Please try again");
-    
     console.log(`The Winner is ${winner}!`);
     return winner;
     }

@@ -21,7 +21,7 @@ function computerPlay() {
 
 function round (playerSelect, computerSelect) {
     if (playerSelect === computerSelect) {
-        playerSelect = prompt("Please try again:" ).toUpperCase;
+        playerSelect = prompt("What a battle but it's a tie! Pick another Pokemon between SQUIRTLE, CHARMANDER, OR BULBASAUR!" ).toUpperCase;
         return round(playerSelect, computerSelect);
     }
     else if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
@@ -43,7 +43,10 @@ function game () {
     let p1Score = 0;
     let CPUscore = 0; 
     while (p1Score <5 && CPUscore <5) {
-        playerSelect = prompt("Pick a Pokemon to battle: ").toUpperCase();
+        playerSelect = prompt("Pick a Pokemon to battle! Choose between SQUIRTLE, CHARMANDER, OR BULBASAUR!").toUpperCase();
+            if (playerSelect !== "BULBSAUR" && playerSelect !== "SQUIRTLE" && playerSelect !== "BULBSAUR") {
+                prompt("Please enter a Pokemon of either SQUIRTLE, CHARMANDER, OR BULBASAUR!");
+            }
         PCpick = computerPlay();
         winner = round(playerSelect, PCpick);
         if (winner === "Player 1 wins!") {

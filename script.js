@@ -21,13 +21,8 @@ function computerPlay() {
 
 function round (playerSelect, computerSelect) {
     if (playerSelect === computerSelect) {
-<<<<<<< HEAD
-        playerSelect = prompt("Please try again:" ).toUpperCase();
-        computerSelect = computerPlay(); 
-=======
         playerSelect = prompt("Please try again:" );
         playerSelect = playerSelect.toUpperCase();
->>>>>>> a57d926f1244d9fb76a69917707cf3fbcebbb6c6
         return round(playerSelect, computerSelect);
     }
     else if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
@@ -67,8 +62,4 @@ game();
 //playerSelect = "SQUIRTLE";
 //something = computerPlay();
 //winner = round(playerSelect, something);
-<<<<<<< HEAD
 //console.log(winner);
-=======
-//console.log(winner);
->>>>>>> a57d926f1244d9fb76a69917707cf3fbcebbb6c6

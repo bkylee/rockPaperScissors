@@ -21,8 +21,7 @@ function computerPlay() {
 
 function round (playerSelect, computerSelect) {
     if (playerSelect === computerSelect) {
-        playerSelect = prompt("Please try again:" );
-        playerSelect = playerSelect.toUpperCase();
+        playerSelect = prompt("Please try again:" ).toUpperCase;
         return round(playerSelect, computerSelect);
     }
     else if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
@@ -49,14 +48,19 @@ function game () {
         winner = round(playerSelect, PCpick);
         if (winner === "Player 1 wins!") {
             p1Score ++;
+            console.log(winner);
         }
         else if (winner === "Gary wins!") {
             CPUscore ++;
+            console.log(winner);
         }
-    console.log(`The Winner is ${winner}!`);
-    return winner;
     }
-}
+    if (p1Score = 5) {
+        alert(`${winner} They beat the CPU with a score of 5 to ${CPUscore}!`);
+    } else {
+        alert(`${winner} Gary beat you with a score of 5 to ${p1Score}!`);
+    } 
+    }
 
 game();
 //playerSelect = "SQUIRTLE";

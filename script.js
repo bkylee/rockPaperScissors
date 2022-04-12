@@ -44,8 +44,8 @@ function game () {
     let CPUscore = 0; 
     while (p1Score <5 && CPUscore <5) {
         playerSelect = prompt("Pick a Pokemon to battle! Choose between SQUIRTLE, CHARMANDER, OR BULBASAUR!").toUpperCase();
-            if (playerSelect !== "BULBSAUR" && playerSelect !== "SQUIRTLE" && playerSelect !== "BULBSAUR") {
-                prompt("Please enter a Pokemon of either SQUIRTLE, CHARMANDER, OR BULBASAUR!");
+            while (playerSelect !== "BULBASAUR" && playerSelect !== "SQUIRTLE" && playerSelect !== "CHARMANDER") {
+                playerSelect = prompt("TRY AGAIN! Enter a pokemon between SQUIRTLE, CHARMANDER OR BULBASAUR!").toUpperCase();
             }
         PCpick = computerPlay();
         winner = round(playerSelect, PCpick);

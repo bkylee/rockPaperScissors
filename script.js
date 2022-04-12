@@ -20,10 +20,12 @@ function computerPlay() {
 
 
 function round (playerSelect, computerSelect) {
+//If the user inputs a non-valid choice, loop prompt until valid input    
     if (playerSelect === computerSelect) {
         playerSelect = prompt("What a battle but it's a tie! Pick another Pokemon between SQUIRTLE, CHARMANDER, OR BULBASAUR!" ).toUpperCase;
         return round(playerSelect, computerSelect);
     }
+//if statements to verify who is the winner 
     else if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
         return "Gary wins!";
     }else if (playerSelect === "SQUIRTLE" && computerSelect === "CHARMANDER") {
@@ -39,6 +41,7 @@ function round (playerSelect, computerSelect) {
     }
 }
 
+//game function that keeps score and determines who gets 5 wins first 
 function game () {
     let p1Score = 0;
     let CPUscore = 0; 
@@ -66,7 +69,4 @@ function game () {
     }
 
 game();
-//playerSelect = "SQUIRTLE";
-//something = computerPlay();
-//winner = round(playerSelect, something);
-//console.log(winner);
+

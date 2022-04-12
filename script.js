@@ -1,4 +1,3 @@
-
 //Function to select the CPU output 
 function computerPlay() {
     //Create play variable to get a random selection between 1-3. This will determine if 
@@ -59,8 +58,8 @@ function game () {
     }
 }
 
-//game();
-playerSelect = "SQUIRTLE";
-something = computerPlay();
-winner = round(playerSelect, something);
-console.log(winner);
+game();
+//playerSelect = "SQUIRTLE";
+//something = computerPlay();
+//winner = round(playerSelect, something);
+//console.log(winner);

@@ -42,7 +42,7 @@ function round (playerSelect, computerSelect) {
 function game () {
     let p1Score = 0;
     let CPUscore = 0; 
-    while (p1Score <5 || CPUscore <5) {
+    while (p1Score <5 && CPUscore <5) {
         playerSelect = prompt("Pick a Pokemon to battle: ").toUpperCase();
         PCpick = computerPlay();
         winner = round(playerSelect, PCpick);

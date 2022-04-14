@@ -18,7 +18,6 @@ function computerPlay() {
     return play; 
 } 
 
-
 function round (playerSelect, computerSelect) {
 //If the user inputs a non-valid choice, loop prompt until valid input    
     if (playerSelect === computerSelect) {
@@ -47,7 +46,7 @@ function game () {
     let CPUscore = 0; 
     while (p1Score <5 && CPUscore <5) {
         playerSelect = prompt("Pick a Pokemon to battle! Choose between SQUIRTLE, CHARMANDER, OR BULBASAUR!").toUpperCase();
-            while (playerSelect !== "BULBASAUR" || playerSelect !== "SQUIRTLE" || playerSelect !== "CHARMANDER") {
+            while (playerSelect !== "BULBASAUR" && playerSelect !== "SQUIRTLE" && playerSelect !== "CHARMANDER") {
                 playerSelect = prompt("TRY AGAIN! Enter a pokemon between SQUIRTLE, CHARMANDER OR BULBASAUR!").toUpperCase();
             }
         PCpick = computerPlay();
@@ -67,6 +66,4 @@ function game () {
         alert(`${winner} Gary beat you with a score of 5 to ${p1Score}!`);
     } 
     }
-
 game();
-

@@ -20,14 +20,13 @@ function computerPlay() {
 
 function round (playerSelect, computerSelect) {
     let playerSelect = "";
-//If the user inputs a non-valid choice, loop prompt until valid input
 const charmander = document.querySelector('#charmander').addEventListener('click', ()=>
- playerSelect = "CHARMANDER");
+playerSelect = "CHARMANDER");
 const bulbasaur = document.querySelector('#bulbasaur').addEventListener('click', ()=>
- playerSelect = "BULBASAUR");
+playerSelect = "BULBASAUR");
 const squirtle = document.querySelector('#squirtle').addEventListener('click', ()=>
- playerSelect = "SQUIRTLE");
- 
+playerSelect = "SQUIRTLE");
+//If the user selection is same as computer, prompt and try again.
     if (playerSelect === computerSelect) {
         playerSelect = prompt("What a battle but it's a tie! Pick another Pokemon between SQUIRTLE, CHARMANDER, OR BULBASAUR!" ).toUpperCase;
         return round(playerSelect, computerSelect);

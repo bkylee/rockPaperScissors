@@ -19,7 +19,15 @@ function computerPlay() {
 } 
 
 function round (playerSelect, computerSelect) {
-//If the user inputs a non-valid choice, loop prompt until valid input    
+    let playerSelect = "";
+//If the user inputs a non-valid choice, loop prompt until valid input
+const charmander = document.querySelector('#charmander').addEventListener('click', ()=>
+ playerSelect = "CHARMANDER");
+const bulbasaur = document.querySelector('#bulbasaur').addEventListener('click', ()=>
+ playerSelect = "BULBASAUR");
+const squirtle = document.querySelector('#squirtle').addEventListener('click', ()=>
+ playerSelect = "SQUIRTLE");
+ 
     if (playerSelect === computerSelect) {
         playerSelect = prompt("What a battle but it's a tie! Pick another Pokemon between SQUIRTLE, CHARMANDER, OR BULBASAUR!" ).toUpperCase;
         return round(playerSelect, computerSelect);
@@ -41,29 +49,33 @@ function round (playerSelect, computerSelect) {
 }
 
 //game function that keeps score and determines who gets 5 wins first 
-function game () {
-    let p1Score = 0;
-    let CPUscore = 0; 
-    while (p1Score <5 && CPUscore <5) {
-        playerSelect = prompt("Pick a Pokemon to battle! Choose between SQUIRTLE, CHARMANDER, OR BULBASAUR!").toUpperCase();
-            while (playerSelect !== "BULBASAUR" && playerSelect !== "SQUIRTLE" && playerSelect !== "CHARMANDER") {
-                playerSelect = prompt("TRY AGAIN! Enter a pokemon between SQUIRTLE, CHARMANDER OR BULBASAUR!").toUpperCase();
-            }
-        PCpick = computerPlay();
-        winner = round(playerSelect, PCpick);
-        if (winner === "Player 1 wins!") {
-            p1Score ++;
-            console.log(winner);
-        }
-        else if (winner === "Gary wins!") {
-            CPUscore ++;
-            console.log(winner);
-        }
-    }
-    if (p1Score = 5) {
-        alert(`${winner} They beat the CPU with a score of 5 to ${CPUscore}!`);
-    } else {
-        alert(`${winner} Gary beat you with a score of 5 to ${p1Score}!`);
-    } 
-    }
-game();
+
+// function game () {
+//     let p1Score = 0;
+//     let CPUscore = 0; 
+//     while (p1Score <5 && CPUscore <5) {
+//         playerSelect = prompt("Pick a Pokemon to battle! Choose between SQUIRTLE, CHARMANDER, OR BULBASAUR!").toUpperCase();
+//             while (playerSelect !== "BULBASAUR" && playerSelect !== "SQUIRTLE" && playerSelect !== "CHARMANDER") {
+//                 playerSelect = prompt("TRY AGAIN! Enter a pokemon between SQUIRTLE, CHARMANDER OR BULBASAUR!").toUpperCase();
+//             }
+//         PCpick = computerPlay();
+//         winner = round(playerSelect, PCpick);
+//         if (winner === "Player 1 wins!") {
+//             p1Score ++;
+//             console.log(winner);
+//         }
+//         else if (winner === "Gary wins!") {
+//             CPUscore ++;
+//             console.log(winner);
+//         }
+//     }
+//     if (p1Score = 5) {
+//         alert(`${winner} They beat the CPU with a score of 5 to ${CPUscore}!`);
+//     } else {
+//         alert(`${winner} Gary beat you with a score of 5 to ${p1Score}!`);
+//     } 
+//     }
+// game();
+
+const body = document.body; 
+

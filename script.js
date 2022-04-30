@@ -60,6 +60,19 @@ const squirtle = document.querySelector('#squirtle');
 squirtle.addEventListener('click', () => {    playerSelect = "SQUIRTLE";
 PCpick = computerPlay();
 winner = round(playerSelect, PCpick);});
+
+if (winner === "Player 1 wins!") {
+    p1Score ++; 
+    //show winning image screen thing
+}
+else if (winner === "Gary wins!") {
+    CPUscore ++; 
+    //show gary winning screen thing 
+}
+else if (p1Score > 0 || CPUscore > 0) {
+    //show "It's a tie battle, pick another pokemon"
+}
+else //show welcome to battle image/screen 
     //while (p1Score <5 && CPUscore <5) {
             // while (playerSelect !== "BULBASAUR" && playerSelect !== "SQUIRTLE" && playerSelect !== "CHARMANDER") {
             //     playerSelect = prompt("TRY AGAIN! Enter a pokemon between SQUIRTLE, CHARMANDER OR BULBASAUR!").toUpperCase();

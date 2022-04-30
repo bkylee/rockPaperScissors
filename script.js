@@ -44,7 +44,7 @@ function round (playerSelect, computerSelect) {
 function game () {
     let p1Score = 0;
     let CPUscore = 0; 
-    winner = "";
+    let winner = "";
 const charmander = document.querySelector('#charmander');
 charmander.addEventListener('click', () => {
     playerSelect = "CHARMANDER";
@@ -52,14 +52,16 @@ charmander.addEventListener('click', () => {
     winner = round(playerSelect, PCpick);});
 const bulbasaur = document.querySelector('#bulbasaur');
 
-bulbasaur.addEventListener('click', () => {    playerSelect = "BULBASAUR";
-PCpick = computerPlay();
-winner = round(playerSelect, PCpick);});
+bulbasaur.addEventListener('click', () => {
+    playerSelect = "BULBASAUR";
+    PCpick = computerPlay();
+    winner = round(playerSelect, PCpick);});
 
 const squirtle = document.querySelector('#squirtle');
-squirtle.addEventListener('click', () => {    playerSelect = "SQUIRTLE";
-PCpick = computerPlay();
-winner = round(playerSelect, PCpick);});
+squirtle.addEventListener('click', () => {
+    playerSelect = "SQUIRTLE";
+    PCpick = computerPlay();
+    winner = round(playerSelect, PCpick);});
 
 if (winner === "Player 1 wins!") {
     p1Score ++; 

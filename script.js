@@ -21,7 +21,7 @@ function computerPlay() {
 function round (playerSelect, computerSelect) {
 //If the user selection is same as computer, prompt and try again.
     if (playerSelect === computerSelect) {
-        return round(playerSelect, computerSelect);
+        alert("Please try again");
     }
 //if statements to verify who is the winner 
     else if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
@@ -38,68 +38,44 @@ function round (playerSelect, computerSelect) {
         return "Gary wins!";
     }
 }
-const GWin = document.createElement('div');
-const garyPic = document.createElement('img');
-garyPic.src = "gary.png";
 
 //game function that keeps score and determines who gets 5 wins first 
-function game () {
-    let p1Score = 0;
-    let CPUscore = 0; 
-    let winner = "";
+let p1Score = 0;
+let CPUscore = 0; 
+let winner = "";
+let playerSelect = ""; 
+let PCpick = "";
 
-const charmander = document.querySelector('#charmander');
-charmander.addEventListener('click', () => {
+const charmander = document.querySelector('#charmander').addEventListener('click', () => {
     playerSelect = "CHARMANDER";
-    PCpick = computerPlay();
-    winner = round(playerSelect, PCpick);});
+    PCpick = computerPlay()
+    winner = round(playerSelect, PCpick);
+    game();});
 
-const bulbasaur = document.querySelector('#bulbasaur');
-bulbasaur.addEventListener('click', () => {
+const bulbasaur = document.querySelector('#bulbasaur').addEventListener('click', () => {
     playerSelect = "BULBASAUR";
     PCpick = computerPlay();
-    winner = round(playerSelect, PCpick);});
+    winner = round(playerSelect, PCpick);
+game();});
 
-const squirtle = document.querySelector('#squirtle');
-squirtle.addEventListener('click', () => {
+const squirtle = document.querySelector('#squirtle').addEventListener('click', () => {
     playerSelect = "SQUIRTLE";
     PCpick = computerPlay();
-    winner = round(playerSelect, PCpick);});
+    winner = round(playerSelect, PCpick);
+game()});
+
+function game () {
 
 if (winner === "Player 1 wins!") {
     p1Score ++; 
-    
+    //show winning image screen thing
 }
 else if (winner === "Gary wins!") {
     CPUscore ++; 
-    //show gary winning screen thing 
-    document.body.appendChild(GWin);
-    GWin.textContent = 'Gary Wins!';
-    //need to transition back to selection 
 }
-else if (p1Score > 0 || CPUscore > 0) {
-    //show "It's a tie battle, pick another pokemon"
-}
-else //show welcome to battle image/screen 
-    //while (p1Score <5 && CPUscore <5) {
-            // while (playerSelect !== "BULBASAUR" && playerSelect !== "SQUIRTLE" && playerSelect !== "CHARMANDER") {
-            //     playerSelect = prompt("TRY AGAIN! Enter a pokemon between SQUIRTLE, CHARMANDER OR BULBASAUR!").toUpperCase();
-            // }
-        //PCpick = computerPlay();
-    //     winner = round(playerSelect, PCpick);
-    //     if (winner === "Player 1 wins!") {
-    //         p1Score ++;
-    //         console.log(winner);
-    //     }
-    //     else if (winner === "Gary wins!") {
-    //         CPUscore ++;
-    //         console.log(winner);
-    //     }
-    // }
     if (p1Score = 5) {
-        alert(`${winner} They beat the CPU with a score of 5 to ${CPUscore}!`);
+        alert(`${winner} You beat the CPU with a score of 5 to ${CPUscore}!`);
     } else {
         alert(`${winner} Gary beat you with a score of 5 to ${p1Score}!`);
     } 
 }
-game();

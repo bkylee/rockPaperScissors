@@ -73,7 +73,7 @@ if (winner === "Player 1 wins!") {
 else if (winner === "Gary wins!") {
     CPUscore ++; 
 }
-    if (p1Score = 5) {
+if (p1Score = 5) {
         alert(`${winner} You beat the CPU with a score of 5 to ${CPUscore}!`);
     } else {
         alert(`${winner} Gary beat you with a score of 5 to ${p1Score}!`);

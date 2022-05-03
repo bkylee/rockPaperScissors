@@ -38,20 +38,23 @@ function round (playerSelect, computerSelect) {
         return "Gary wins!";
     }
 }
+const GWin = document.createElement('div');
+const garyPic = document.createElement('img');
+garyPic.src = "gary.png";
 
 //game function that keeps score and determines who gets 5 wins first 
-
 function game () {
     let p1Score = 0;
     let CPUscore = 0; 
     let winner = "";
+
 const charmander = document.querySelector('#charmander');
 charmander.addEventListener('click', () => {
     playerSelect = "CHARMANDER";
     PCpick = computerPlay();
     winner = round(playerSelect, PCpick);});
-const bulbasaur = document.querySelector('#bulbasaur');
 
+const bulbasaur = document.querySelector('#bulbasaur');
 bulbasaur.addEventListener('click', () => {
     playerSelect = "BULBASAUR";
     PCpick = computerPlay();
@@ -65,11 +68,14 @@ squirtle.addEventListener('click', () => {
 
 if (winner === "Player 1 wins!") {
     p1Score ++; 
-    //show winning image screen thing
+    
 }
 else if (winner === "Gary wins!") {
     CPUscore ++; 
     //show gary winning screen thing 
+    document.body.appendChild(GWin);
+    GWin.textContent = 'Gary Wins!';
+    //need to transition back to selection 
 }
 else if (p1Score > 0 || CPUscore > 0) {
     //show "It's a tie battle, pick another pokemon"

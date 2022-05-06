@@ -48,6 +48,12 @@ let playerSelect = "";
 let PCpick = "";
 
 const body = document.body;
+
+const header = document.createElement('h1');
+header.textContent = "CHOOSE YOUR POKEMON AND BATTLE GARY!";
+body.appendChild(header);
+
+
 const scores  = document.createElement('div');
 body.appendChild(scores);
 const winScreen = document.createElement("div");

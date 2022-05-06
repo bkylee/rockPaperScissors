@@ -104,7 +104,6 @@ game()});
 //uses string vars to output results
 //when either the player or CPU hits 5 wins, buttons are removed and game is completed with output of results. 
 
-
 function game () {
     if (winner === "Player 1 wins!") {
         p1Score ++; 

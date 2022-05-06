@@ -39,27 +39,43 @@ function round (playerSelect, computerSelect) {
     }
 }
 
-//game function that keeps score and determines who gets 5 wins first 
+//GLOBAL VARIABLES 
+
+
+//Score tracking variables 
 let p1Score = 0;
 let CPUscore = 0; 
 
+
+//string variables 
 let winner = "";
 let playerSelect = ""; 
 let PCpick = "";
 
+
+//DOM variables and event listeners 
+
+
 const body = document.body;
 
+
+//header to top the webpage 
 const header = document.createElement('h1');
 header.textContent = "CHOOSE YOUR POKEMON AND BATTLE GARY!";
 body.appendChild(header);
 
-
+//scores div to show the score of the match 
 const scores  = document.createElement('div');
 body.appendChild(scores);
+
+//win div to show who won the last battle
 const winScreen = document.createElement("div");
 body.appendChild(winScreen);
 
+
+//Pokemon variables and event listener to complete a round of battle based on who the user clicked on
 const charmander = document.querySelector('#charmander');
+body.appendChild(charmander);
 charmander.addEventListener('click', () => {
     playerSelect = "CHARMANDER";
     PCpick = computerPlay()
@@ -67,6 +83,7 @@ charmander.addEventListener('click', () => {
     game();});
 
 const bulbasaur = document.querySelector('#bulbasaur');
+body.appendChild(bulbasaur);
 bulbasaur.addEventListener('click', () => {
     playerSelect = "BULBASAUR";
     PCpick = computerPlay();
@@ -74,11 +91,19 @@ bulbasaur.addEventListener('click', () => {
 game();});
 
 const squirtle = document.querySelector('#squirtle');
+body.appendChild(squirtle);
 squirtle.addEventListener('click', () => {
     playerSelect = "SQUIRTLE";
     PCpick = computerPlay();
     winner = round(playerSelect, PCpick);
 game()});
+
+
+//game function that's called when user clicks on a pokemon. Determines who wins based on "round" function 
+//will add to counter based on who won the battle. 
+//uses string vars to output results
+//when either the player or CPU hits 5 wins, buttons are removed and game is completed with output of results. 
+
 
 function game () {
     if (winner === "Player 1 wins!") {

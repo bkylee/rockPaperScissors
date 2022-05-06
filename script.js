@@ -21,7 +21,7 @@ function computerPlay() {
 function round (playerSelect, computerSelect) {
 //If the user selection is same as computer, prompt and try again.
     if (playerSelect === computerSelect) {
-        alert("Please try again");
+        winScreen.textContent = "Hard fought battle, but it's a draw. Pick another pokemon!";
     }
 //if statements to verify who is the winner 
     else if (playerSelect === "CHARMANDER" && computerSelect === "SQUIRTLE") {
@@ -42,40 +42,62 @@ function round (playerSelect, computerSelect) {
 //game function that keeps score and determines who gets 5 wins first 
 let p1Score = 0;
 let CPUscore = 0; 
+const scores  = document.getElementById('scores');
+scores.textContent = `Player score = ${p1Score} Gary score = ${CPUscore}`;
 let winner = "";
 let playerSelect = ""; 
 let PCpick = "";
 
-const charmander = document.querySelector('#charmander').addEventListener('click', () => {
+const body = document.body;
+
+const winScreen = document.createElement("div");
+body.appendChild(winScreen);
+
+const charmander = document.querySelector('#charmander');
+charmander.addEventListener('click', () => {
     playerSelect = "CHARMANDER";
     PCpick = computerPlay()
     winner = round(playerSelect, PCpick);
     game();});
 
-const bulbasaur = document.querySelector('#bulbasaur').addEventListener('click', () => {
+const bulbasaur = document.querySelector('#bulbasaur');
+bulbasaur.addEventListener('click', () => {
     playerSelect = "BULBASAUR";
     PCpick = computerPlay();
     winner = round(playerSelect, PCpick);
 game();});
 
-const squirtle = document.querySelector('#squirtle').addEventListener('click', () => {
+const squirtle = document.querySelector('#squirtle');
+squirtle.addEventListener('click', () => {
     playerSelect = "SQUIRTLE";
     PCpick = computerPlay();
     winner = round(playerSelect, PCpick);
 game()});
 
 function game () {
-
-if (winner === "Player 1 wins!") {
-    p1Score ++; 
-    //show winning image screen thing
-}
+    if (winner === "Player 1 wins!") {
+        p1Score ++; 
+        scores.textContent = `Player score = ${p1Score} Gary score = ${CPUscore}`;
+        winScreen.textContent = "Player 1 Wins!";
+        //show winning image screen thing
+    }
 else if (winner === "Gary wins!") {
     CPUscore ++; 
+    scores.textContent = `Player score = ${p1Score} Gary score = ${CPUscore}`;
+    winScreen.textContent = "Gary Wins!";
 }
+
 if (p1Score === 5) {
-        alert(`${winner} You beat the CPU with a score of 5 to ${CPUscore}!`);
-    } else if (CPUscore === 5) {
-        alert(`${winner} Gary beat you with a score of 5 to ${p1Score}!`);
+        winScreen.textContent = `You win with a score of ${p1Score} to ${CPUscore}!`;
+        charmander.parentElement.removeChild(charmander);
+        squirtle.parentElement.removeChild(squirtle);
+        bulbasaur.parentElement.removeChild(bulbasaur);
+    } 
+
+else if (CPUscore === 5) {
+        winScreen.textContent = `Gary wins with a score of ${CPUscore} to ${p1Score}!`;
+        charmander.parentElement.removeChild(charmander);
+        squirtle.parentElement.removeChild(squirtle);
+        bulbasaur.parentElement.removeChild(bulbasaur);
     } 
 }

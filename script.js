@@ -42,14 +42,14 @@ function round (playerSelect, computerSelect) {
 //game function that keeps score and determines who gets 5 wins first 
 let p1Score = 0;
 let CPUscore = 0; 
-const scores  = document.getElementById('scores');
-scores.textContent = `Player score = ${p1Score} Gary score = ${CPUscore}`;
+
 let winner = "";
 let playerSelect = ""; 
 let PCpick = "";
 
 const body = document.body;
-
+const scores  = document.createElement('div');
+body.appendChild(scores);
 const winScreen = document.createElement("div");
 body.appendChild(winScreen);
 
